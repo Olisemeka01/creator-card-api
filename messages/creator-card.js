@@ -6,4 +6,5 @@ module.exports = {
   CARD_IS_DRAFT: 'Creator card not found',
   ACCESS_CODE_REQUIRED_RETRIEVAL: 'This card is private. An access code is required',
   INVALID_ACCESS_CODE: 'Invalid access code',
+  INVALID_CREATOR_REFERENCE: 'Invalid creator reference',
 };

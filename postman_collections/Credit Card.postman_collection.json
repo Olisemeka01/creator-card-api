@@ -1,0 +1,106 @@
+{
+  "info": {
+    "_postman_id": "563a90d4-ed3d-43d5-a739-01b0c8e43d30",
+    "name": "Credit Card",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50129903",
+    "_collection_link": "https://go.postman.co/collection/50129903-563a90d4-ed3d-43d5-a739-01b0c8e43d30?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "create creator card",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"My Creator Profile\",\n  \"description\": \"Welcome to my creator card\", // optional\n  \"slug\": \"my-creator-profile\", // optional - auto-generated if not provided\n  \"creator_reference\": \"abcd1234efgh5678ijkk\",\n  \"links\": [\n    {\n      \"title\": \"YouTube\",\n      \"url\": \"https://youtube.com/@channel\"\n    },\n    {\n      \"title\": \"Twitter\",\n      \"url\": \"https://twitter.com/username\"\n    }\n  ],\n  \"service_rates\": { // optional\n    \"currency\": \"USD\",\n    \"rates\": [\n      {\n        \"name\": \"Video Shoutout\",\n        \"description\": \"A personalized video message\",\n        \"amount\": 100\n      },\n      {\n        \"name\": \"Brand Deal\",\n        \"description\": \"Sponsored content on my channel\",\n        \"amount\": 500\n      }\n    ]\n  },\n  \"status\": \"draft\", // \"draft\" or \"published\"\n  \"access_type\": \"public\" // optional - \"public\" or \"private\", defaults to \"public\"\n//   \"access_code\": \"123456\" // optional - required if access_type is \"private\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{prodUrl}}/creator-cards",
+          "host": [
+            "{{prodUrl}}"
+          ],
+          "path": [
+            "creator-cards"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET creator-cards",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"creator_reference\": \"abcd1234efgh5678ijkj\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{prodUrl}}/creator-cards/my-creator-profile",
+          "host": [
+            "{{prodUrl}}"
+          ],
+          "path": [
+            "creator-cards",
+            "my-creator-profile"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    },
+    {
+      "key": "prodUrl",
+      "value": ""
+    }
+  ]
+}

@@ -32,6 +32,11 @@ async function deleteCreatorCard(serviceData, options = {}) {
       throwAppError(CreatorCardMessages.CARD_NOT_FOUND, ERROR_CODE.NF01);
     }
 
+    // Business rule: Verify creator_reference matches
+    if (creatorReference !== card.creator_reference) {
+      throwAppError(CreatorCardMessages.INVALID_CREATOR_REFERENCE, ERROR_CODE.PERMERR);
+    }
+
     // Soft delete the card by setting deleted timestamp
     const deletedTimestamp = Date.now();
     await CreatorCardRepository.updateOne({
