@@ -264,6 +264,26 @@ function isemail(value, arg, isNot, prop) {
   };
 }
 
+function startswithprotocol(value, _, __, prop) {
+  if (!value) {
+    return {
+      isSatisfied: true,
+      evaluatedValue: value,
+      errorMessage: 'none',
+    };
+  }
+  const isValid = value.startsWith('http://') || value.startsWith('https://');
+  const isSatisfied = isValid ? value : false;
+  if (Array.isArray(value)) {
+    return processArray(startswithprotocol, value, [], prop);
+  }
+  return {
+    evaluatedValue: value,
+    isSatisfied,
+    errorMessage: `Passed ${prop} value ${value} must start with http:// or https://`,
+  };
+}
+
 module.exports = {
   min,
   max,
@@ -280,4 +300,5 @@ module.exports = {
   uppercase,
   timestamptohex,
   isemail,
+  startsWithProtocol: startswithprotocol,
 };
