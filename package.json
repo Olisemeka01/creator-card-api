@@ -1,12 +1,12 @@
 {
-  "name": "profold-be-api",
+  "name": "creator-card-api",
   "version": "1.0.0",
   "description": "Project Scaffold for R17 Projects",
   "main": "app.js",
   "type": "commonjs",
   "repository": {
     "type": "git",
-    "url": "profold-be-api-1"
+    "url": "https://github.com/Olisemeka01/creator-card-api.git"
   },
   "scripts": {
     "start": "node app.js",
